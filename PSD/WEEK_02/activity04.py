@@ -1,6 +1,6 @@
 # Activity 03 - Fibonacci & Factorial (Class Version)
 
-class MathTools:
+class FiboFacto:
     # Method to generate Fibonacci series
     def fibonacci(self, length):
         if length < 0:
@@ -25,7 +25,7 @@ class MathTools:
         return result
 
 # main problem 
-tools = MathTools()   # Create one object
+tools = FiboFacto()   # Create one object
 
 num = int(input("Enter a non-negative integer: "))
 
