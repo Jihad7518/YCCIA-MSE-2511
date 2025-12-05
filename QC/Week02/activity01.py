@@ -6,7 +6,7 @@ import math
 # Just a small helper function to take complex num input from user
 def complex_input(name):
     print(f"\nEnter Complex Number {name}:")
-    # user gives real and imaginary separately, easier this way
+    # user gives real and imaginary separately
     real = float(input("  Real part: "))
     imag = float(input("  Imag part: "))
     return complex(real, imag)   # python's built-in complex type
@@ -20,7 +20,7 @@ def complex_calculator():
     print(f"A = {A}")
     print(f"B = {B}")
 
-    # these are all built-in operations, python handles automatically
+    # these are all built-in operations
     print("\nAddition (A + B):", A + B)
     print("Subtraction (A - B):", A - B)
     print("Multiplication (A * B):", A * B)
@@ -43,7 +43,7 @@ def rectangular_to_polar():
     # phase angle using cmath.phase, gives angle in radians
     phase_rad = cmath.phase(z)
 
-    # converting radians to degrees, looks nicer for humans
+    # converting radians to degrees
     phase_deg = math.degrees(phase_rad)
 
     print("\n Rectangular to Polar ")
