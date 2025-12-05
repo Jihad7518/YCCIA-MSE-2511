@@ -40,7 +40,7 @@ class FileProcessor:
         star_count = self.count_stars(content)
         print("\nNumber of '*' characters in the file:", star_count)
 
-        # now append EOF message
+        # now append EOF message (Part 2)
         self.append_end_message()
         print("\n'End of File' message added to the file.")
 
