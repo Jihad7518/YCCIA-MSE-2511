@@ -1,47 +1,97 @@
-# Complex Number Calculator (Menu Driven)
+import cmath
+import math
 
-def get_complex_input(name):
-    print(f"\nEnter complex number {name}:")
+# Part 1: Complex Number Calculator
+
+# Just a small helper function to take complex num input from user
+def complex_input(name):
+    print(f"\nEnter Complex Number {name}:")
+    # user gives real and imaginary separately, easier this way
     real = float(input("  Real part: "))
     imag = float(input("  Imag part: "))
-    return complex(real, imag)
+    return complex(real, imag)   # python's built-in complex type
 
-def display_menu():
-    print("\n===== COMPLEX NUMBER CALCULATOR =====")
-    print("1. Add (A + B)")
-    print("2. Subtract (A - B)")
-    print("3. Multiply (A * B)")
-    print("4. Divide (A / B)")
-    print("5. Modulus |A| and |B|")
-    print("6. Exit")
-    return int(input("Choose an option: "))
+def complex_calculator():
+    # taking two complex numbers from user
+    A = complex_input("A")
+    B = complex_input("B")
 
-# Take input once
-A = get_complex_input("A")
-B = get_complex_input("B")
+    print("\n Complex number calculator")
+    print(f"A = {A}")
+    print(f"B = {B}")
 
-while True:
-    choice = display_menu()
+    # these are all built-in operations, python handles automatically
+    print("\nAddition (A + B):", A + B)
+    print("Subtraction (A - B):", A - B)
+    print("Multiplication (A * B):", A * B)
+    print("Division (A / B):", A / B)
+    print("Modulus |A|:", abs(A))  # abs() gives magnitude
+    print("Modulus |B|:", abs(B))
 
-    if choice == 1:
-        print("\nResult (A + B):", A + B)
+# Part 2: Complex Vector Converter
 
-    elif choice == 2:
-        print("\nResult (A - B):", A - B)
+def rectangular_to_polar():
+    # user gives a + jb form values
+    a = float(input("Enter real part (a): "))
+    b = float(input("Enter imaginary part (b): "))
 
-    elif choice == 3:
-        print("\nResult (A * B):", A * B)
+    z = complex(a, b)
 
-    elif choice == 4:
-        print("\nResult (A / B):", A / B)
+    # magnitude directly using abs()
+    magnitude = abs(z)
 
-    elif choice == 5:
-        print("\n|A| =", abs(A))
-        print("|B| =", abs(B))
+    # phase angle using cmath.phase, gives angle in radians
+    phase_rad = cmath.phase(z)
 
-    elif choice == 6:
-        print("\nExiting calculator...")
-        break
+    # converting radians to degrees, looks nicer for humans
+    phase_deg = math.degrees(phase_rad)
 
-    else:
-        print("Invalid choice! Please try again.")
+    print("\n Rectangular to Polar ")
+    print(f"Complex Number: {z}")
+    print(f"Magnitude (r): {magnitude}")
+    print(f"Phase (θ radians): {phase_rad}")
+    print(f"Phase (θ degrees): {phase_deg}")
+
+def polar_to_rectangular():
+    # user gives r and angle
+    r = float(input("Enter magnitude (r): "))
+    theta_deg = float(input("Enter phase (degrees): "))
+
+    # converting degrees to radians because python uses radians for math funcs
+    theta_rad = math.radians(theta_deg)
+
+    # formula: a = r cosθ, b = r sinθ
+    a = r * math.cos(theta_rad)
+    b = r * math.sin(theta_rad)
+
+    z = complex(a, b)
+
+    print("\n Polar to Rectangular")
+    print(f"Real part: {a}")
+    print(f"Imag part: {b}")
+    print(f"Complex Number: {z}")
+
+# Main menu loop, just runs until user exits
+def main():
+    while True:
+        print("\n Complex Number Tool")
+        print("1. Complex Calculator (Add/Sub/Mult/Div/Modulus)")
+        print("2. Convert (a + jb) → Magnitude & Phase")
+        print("3. Convert Magnitude & Phase → (a + jb)")
+        print("4. Exit")
+        
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            complex_calculator()
+        elif choice == "2":
+            rectangular_to_polar()
+        elif choice == "3":
+            polar_to_rectangular()
+        elif choice == "4":
+            print("Exiting...")
+            break
+        else:
+            print("Invalid option, try again.")
+
+main()
