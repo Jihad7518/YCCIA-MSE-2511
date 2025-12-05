@@ -27,7 +27,7 @@ class FileProcessor:
             print(content)
             return
 
-        print("\n--- File Content ---")
+        print("\n File Content")
         print(content)  # print the actual text from the file
 
         star_count = self.count_stars(content)
