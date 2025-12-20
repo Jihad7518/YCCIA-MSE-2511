@@ -1,3 +1,15 @@
+Yes, different objects can respond differently to the same method call.
+This behavior is known as polymorphism.
+In this project, different animal objects such as Dog, Eagle, and Shark implement the same move() method but behave differently based on their class.
+Polymorphism improves code flexibility, scalability, and allows treating related objects uniformly while preserving specific behavior.
+
+
+
+# animal_inheritance.py
+# Demonstrates inheritance based on the provided UML diagram
+
+
+
 # Base Class
 class Animal:
     def __init__(self, name):
