@@ -1,88 +1,92 @@
-# animal_inheritance.py
-# Demonstrates inheritance based on the provided UML diagram
-
-
-# Base class
+# Base Class
 class Animal:
     def __init__(self, name):
-        self.name = name  # Common attribute for all animals
+        self.name = name
+
+    def move(self):
+        print("The animal moves.")
 
 
-# Mammal inherits from Animal
+# Level 1 Inheritance
 class Mammal(Animal):
     def __init__(self, name, feature):
         super().__init__(name)
-        self.feature = feature  # Specific feature of mammals
+        self.feature = feature
 
 
-# Bird inherits from Animal
 class Bird(Animal):
     def __init__(self, name, feature):
         super().__init__(name)
-        self.feature = feature  # Specific feature of birds
+        self.feature = feature
 
 
-# Fish inherits from Animal
 class Fish(Animal):
     def __init__(self, name, feature):
         super().__init__(name)
-        self.feature = feature  # Specific feature of fish
+        self.feature = feature
 
 
-# Dog inherits from Mammal
+# Level 2 Inheritance (Concrete Classes)
 class Dog(Mammal):
     def walk(self):
-        print(f"{self.name} is walking on four legs.")
+        print(f"{self.name} is walking.")
+
+    def move(self):
+        print(f"{self.name} walks on four legs.")
 
 
-# Cat inherits from Mammal
 class Cat(Mammal):
     def walk(self):
-        print(f"{self.name} is walking gracefully.")
+        print(f"{self.name} is walking.")
+
+    def move(self):
+        print(f"{self.name} walks gracefully.")
 
 
-# Eagle inherits from Bird
 class Eagle(Bird):
     def fly(self):
-        print(f"{self.name} is flying high in the sky.")
+        print(f"{self.name} is flying.")
+
+    def move(self):
+        print(f"{self.name} flies in the sky.")
 
 
-# Penguin inherits from Bird
 class Penguin(Bird):
     def swim(self):
-        print(f"{self.name} is swimming in cold water.")
+        print(f"{self.name} is swimming.")
+
+    def move(self):
+        print(f"{self.name} swims instead of flying.")
 
 
-# Salmon inherits from Fish
 class Salmon(Fish):
     def swim(self):
-        print(f"{self.name} is swimming upstream.")
+        print(f"{self.name} is swimming.")
+
+    def move(self):
+        print(f"{self.name} swims upstream.")
 
 
-# Shark inherits from Fish
 class Shark(Fish):
     def swim(self):
-        print(f"{self.name} is swimming powerfully in the ocean.")
+        print(f"{self.name} is swimming.")
+
+    def move(self):
+        print(f"{self.name} swims powerfully in the ocean.")
 
 
-# Main execution
+# Main Program
 if __name__ == "__main__":
 
-    dog = Dog("Buddy", "Has fur")
-    cat = Cat("Whiskers", "Has fur")
+    animals = [
+        Dog("Buddy", "Has fur"),
+        Cat("Kitty", "Has fur"),
+        Eagle("Golden Eagle", "Has wings"),
+        Penguin("Pingu", "Cannot fly"),
+        Salmon("Silver Salmon", "Freshwater fish"),
+        Shark("Great White Shark", "Sharp teeth")
+    ]
 
-    eagle = Eagle("Golden Eagle", "Has wings")
-    penguin = Penguin("Emperor Penguin", "Has flippers")
-
-    salmon = Salmon("Atlantic Salmon", "Has gills")
-    shark = Shark("Great White Shark", "Has sharp teeth")
-
-    # Calling behavior methods
-    dog.walk()
-    cat.walk()
-
-    eagle.fly()
-    penguin.swim()
-
-    salmon.swim()
-    shark.swim()
+    # Polymorphism Demonstration
+    for animal in animals:
+        animal.move()
