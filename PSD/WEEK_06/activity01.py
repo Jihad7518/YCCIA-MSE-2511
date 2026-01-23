@@ -2,11 +2,11 @@ class StudentRecords:
     def __init__(self):
         # dictionary 1: Stdnt ID -> Stdnt Name
         self.students = {
-            "S101": "Ali",
-            "S102": "Sara",
-            "S103": "John",
-            "S104": "Ayesha",
-            "S105": "David"
+            "S101": "Andre",
+            "S102": "Shakib",
+            "S103": "Mashuk",
+            "S104": "Hasan",
+            "S105": "Brandy"
         }
 
         # dictionary 1: Stdnt ID -> MSE800 Score
