@@ -1,11 +1,26 @@
 import sqlite3
 
-
 class StudentDatabase:
     def __init__(self, db_name="students.db"):
         self.conn = sqlite3.connect(db_name)
         self.cursor = self.conn.cursor()
         self.create_table()
+        
+        # W6-A1 Dictionaries
+        self.students_dict = {
+            "S101": "Andre",
+            "S102": "Shakib",
+            "S103": "Mashuk",
+            "S104": "Hasan",
+            "S105": "Brandy"
+        }
+        self.scores_dict = {
+            "S101": 78,
+            "S102": 45,
+            "S103": 62,
+            "S104": 50,
+            "S105": 38
+        }
 
     def create_table(self):
         self.cursor.execute("""
@@ -17,19 +32,18 @@ class StudentDatabase:
         """)
         self.conn.commit()
 
-    def insert_students(self):
-        students_data = [
-            ("S101", "Andre", 78),
-            ("S102", "Shakib", 45),
-            ("S103", "Mashuk", 62),
-            ("S104", "Hasan", 50),
-            ("S105", "Brandy", 38)
-        ]
+    def insert_from_dicts(self):
+        # Combine dictionaries and insert into database
+        combined_data = []
+        for sid in self.students_dict:
+            name = self.students_dict[sid]
+            score = self.scores_dict[sid]
+            combined_data.append((sid, name, score))
 
         self.cursor.executemany("""
             INSERT OR REPLACE INTO Student (student_id, student_name, score)
             VALUES (?, ?, ?)
-        """, students_data)
+        """, combined_data)
 
         self.conn.commit()
 
@@ -46,9 +60,9 @@ class StudentDatabase:
         self.conn.close()
 
 
-# main Prgrm
+# ---- Main Program ----
 db = StudentDatabase()
-db.insert_students()
+db.insert_from_dicts()  # insert data from dictionaries
 
 top_students = db.get_top_three_students()
 
