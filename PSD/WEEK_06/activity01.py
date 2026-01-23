@@ -1,6 +1,6 @@
 class StudentRecords:
     def __init__(self):
-        # Dictionary 1: Student ID -> Student Name
+        # dictionary 1: Stdnt ID -> Stdnt Name
         self.students = {
             "S101": "Ali",
             "S102": "Sara",
@@ -9,7 +9,7 @@ class StudentRecords:
             "S105": "David"
         }
 
-        # Dictionary 2: Student ID -> MSE800 Score
+        # dictionary 1: Stdnt ID -> MSE800 Score
         self.scores = {
             "S101": 78,
             "S102": 45,
