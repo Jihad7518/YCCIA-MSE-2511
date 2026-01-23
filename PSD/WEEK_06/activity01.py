@@ -31,7 +31,7 @@ class StudentRecords:
         return passed_students
 
 
-# ---- Main Program ----
+# main prgrm
 records = StudentRecords()
 passed = records.get_passed_students()
 
