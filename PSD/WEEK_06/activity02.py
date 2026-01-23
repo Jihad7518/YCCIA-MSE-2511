@@ -6,7 +6,7 @@ class StudentDatabase:
         self.cursor = self.conn.cursor()
         self.create_table()
         
-        # W6-A1 Dictionaries
+        # A1 dictionaries
         self.students_dict = {
             "S101": "Andre",
             "S102": "Shakib",
@@ -33,7 +33,7 @@ class StudentDatabase:
         self.conn.commit()
 
     def insert_from_dicts(self):
-        # Combine dictionaries and insert into database
+        # combine dictionaries and insert into database
         combined_data = []
         for sid in self.students_dict:
             name = self.students_dict[sid]
@@ -60,7 +60,7 @@ class StudentDatabase:
         self.conn.close()
 
 
-# ---- Main Program ----
+# main Prgrm
 db = StudentDatabase()
 db.insert_from_dicts()  # insert data from dictionaries
 
