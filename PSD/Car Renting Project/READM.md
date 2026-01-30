@@ -86,6 +86,10 @@ The system uses an **SQLite database**, follows a **modular architecture**, and 
 3. Initialize the database:
    ```bash
    python init_db.py
+
+4. Run the application
+   python main.py
+
 ## ▶️ How to Use the System
 
 ### 👨‍💼 Admin Workflow
