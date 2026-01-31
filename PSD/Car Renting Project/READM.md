@@ -87,9 +87,11 @@ The system uses an **SQLite database**, follows a **modular architecture**, and 
    ```bash
    python init_db.py
 
+=======
 4. Run the application
    python main.py
-
+   
+>>>>>>> edeaeacec044593cdb1632337bdc4731e293bfcf
 ## ▶️ How to Use the System
 
 ### 👨‍💼 Admin Workflow
@@ -134,7 +136,6 @@ car_rental_system/
 │
 └── data/
     └── car_rental.db        # SQLite database
-
 
 
 ---
