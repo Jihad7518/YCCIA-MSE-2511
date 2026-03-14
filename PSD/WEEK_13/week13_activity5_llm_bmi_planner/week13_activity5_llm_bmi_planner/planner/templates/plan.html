@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Diet & Exercise Planner</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="page">
+    <div class="topbar">
+        <div>
+            <h1>LLM-based BMI Diet & Exercise Planner</h1>
+            <p class="subtitle">Enter BMI-related details to generate a 1-month personalized plan.</p>
+        </div>
+    </div>
+
+    <div class="layout">
+        <div class="card form-card">
+            <h2>Input Details</h2>
+            <form method="post">
+                {% csrf_token %}
+                <label>Age</label>
+                <input type="number" name="age" min="1" value="{{ age }}" required>
+
+                <label>Gender</label>
+                <select name="gender">
+                    <option value="female" {% if gender == 'female' %}selected{% endif %}>Female</option>
+                    <option value="male" {% if gender == 'male' %}selected{% endif %}>Male</option>
+                </select>
+
+                <label>Weight (kg)</label>
+                <input type="number" name="weight" step="0.01" min="0.01" value="{{ weight }}" required>
+
+                <label>Height (cm)</label>
+                <input type="number" name="height" step="0.01" min="0.01" value="{{ height }}" required>
+
+                <button type="submit">Generate 1-Month Plan</button>
+            </form>
+
+            {% if error %}
+                <div class="alert error">{{ error }}</div>
+            {% endif %}
+        </div>
+
+        <div class="card result-card">
+            {% if result %}
+                <div class="badge-row">
+                    <span class="badge">BMI: {{ result.bmi }}</span>
+                    <span class="badge">{{ result.category }}</span>
+                </div>
+
+                <h2>Plan Summary</h2>
+                <p><strong>Diet goal:</strong> {{ result.diet.goal }}</p>
+                <p><strong>Breakfast:</strong> {{ result.diet.breakfast }}</p>
+                <p><strong>Lunch:</strong> {{ result.diet.lunch }}</p>
+                <p><strong>Dinner:</strong> {{ result.diet.dinner }}</p>
+                <p><strong>Snacks:</strong> {{ result.diet.snacks }}</p>
+
+                <h3>Diet Guidance</h3>
+                <ul>
+                    {% for item in result.diet.guidance %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+
+                <h3>Exercise Guidance</h3>
+                <p><strong>Cardio:</strong> {{ result.exercise.cardio }}</p>
+                <p><strong>Strength:</strong> {{ result.exercise.strength }}</p>
+                <p><strong>Recovery:</strong> {{ result.exercise.recovery }}</p>
+                <p><strong>Weekly target:</strong> {{ result.exercise.weekly_target }}</p>
+
+                <h3>4-Week Plan</h3>
+                {% for week in result.weeks %}
+                    <div class="week-box">
+                        <h4>Week {{ week.number }}</h4>
+                        <p><strong>Focus:</strong> {{ week.focus }}</p>
+                        <p><strong>Diet tasks</strong></p>
+                        <ul>
+                            {% for item in week.diet_points %}
+                                <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                        <p><strong>Exercise tasks</strong></p>
+                        <ul>
+                            {% for item in week.exercise_points %}
+                                <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+
+                <h3>How the system generated this plan</h3>
+                <p>{{ result.explanation }}</p>
+                <p>{{ result.diet.age_note }}</p>
+                <p>{{ result.diet.gender_note }}</p>
+            {% else %}
+                <h2>Result Area</h2>
+                <p>No plan generated yet. Enter details and click the button.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
