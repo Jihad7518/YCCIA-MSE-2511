@@ -1,0 +1,11 @@
+category,sales_sum,sales_mean,sales_count,quantity_sum,quantity_mean,,,
+A,18010,545.7575758,33,282,8.545454545,,,
+B,22154,615.3888889,36,343,9.527777778,,,
+C,18213,587.516129,31,273,8.806451613,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,Highest Total Sales,22154
+,,,,,,,Highest Average Saeles,615.3888889
+,,,,,,,Highest Quantity,343
