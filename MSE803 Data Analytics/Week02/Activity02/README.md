@@ -54,7 +54,7 @@ The missing values are relatively small and consistent with real-world environme
 The distribution of PM2.5 is right-skewed, with most values below 150. However, extreme values reach up to 999.
 
 **Insight:**  
-While air pollution is often moderate, there are significant extreme pollution events, which are important for environmental monitoring.
+Air pollution is generally moderate, but rare extreme spikes significantly increase overall risk. These outliers may correspond to episodic events (e.g., traffic surges, industrial emissions, or weather conditions) and should be specifically monitored and modeled.
 
 ---
 
@@ -64,11 +64,12 @@ While air pollution is often moderate, there are significant extreme pollution e
 
 PM2.5 levels vary significantly across months:
 
-- Highest: Winter months (December–January)  
-- Lowest: Summer months (July–August)  
+- PM2.5 levels fluctuate across months
+- Higher values often observed in winter periods
+- Lower values tend to appear in mid-year months
 
 **Insight:**  
-Air pollution shows strong seasonal variation, likely influenced by heating activities and weather conditions.
+There is a moderate seasonal pattern, where pollution tends to increase during colder months, possibly due to heating emissions and atmospheric conditions, although variability suggests other contributing factors.
 
 ---
 
@@ -88,7 +89,8 @@ Key relationships:
   - NO2 & O3  
 
 **Insight:**  
-Pollutants are highly interrelated, and environmental factors such as wind play an important role in reducing pollution levels.
+Air pollutants are highly interrelated, indicating common emission sources.
+Meteorological factors—especially wind—play a critical role in reducing pollution by dispersion.
 
 ---
 
@@ -139,18 +141,18 @@ The decision tree performs better than linear regression, suggesting that air po
 
 ---
 
-### 5.4 Prediction Visualization
+### 5.3 Prediction Visualization
 
 ![Prediction vs Actual](ResultSS/prediction_vs_actual.png)
 
 This plot compares actual PM2.5 values with predicted values from the model.
 
 **Insight:**  
-The predictions closely follow the actual values, confirming that the model performs well in capturing pollution patterns.
+The predictions closely align with the actual values, indicating strong model generalization.
 
 ---
 
-### 5.3 K-Means Clustering
+### 5.4 K-Means Clustering
 
 ![Clustering Output](ResultSS/clustering.png)
 
