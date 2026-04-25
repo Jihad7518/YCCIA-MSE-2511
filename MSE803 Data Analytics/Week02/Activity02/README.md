@@ -89,7 +89,8 @@ Key relationships:
   - NO2 & O3  
 
 **Insight:**  
-Pollutants are highly interrelated, and environmental factors such as wind play an important role in reducing pollution levels.
+Air pollutants are highly interrelated, indicating common emission sources.
+Meteorological factors—especially wind—play a critical role in reducing pollution by dispersion.
 
 ---
 
