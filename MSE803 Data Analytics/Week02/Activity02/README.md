@@ -64,11 +64,12 @@ Air pollution is generally moderate, but rare extreme spikes significantly incre
 
 PM2.5 levels vary significantly across months:
 
-- Highest: Winter months (December–January)  
-- Lowest: Summer months (July–August)  
+- PM2.5 levels fluctuate across months
+- Higher values often observed in winter periods
+- Lower values tend to appear in mid-year months
 
 **Insight:**  
-Air pollution shows strong seasonal variation, likely influenced by heating activities and weather conditions.
+There is a moderate seasonal pattern, where pollution tends to increase during colder months, possibly due to heating emissions and atmospheric conditions, although variability suggests other contributing factors.
 
 ---
 
