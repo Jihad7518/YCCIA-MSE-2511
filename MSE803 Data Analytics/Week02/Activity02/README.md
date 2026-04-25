@@ -139,6 +139,17 @@ The decision tree performs better than linear regression, suggesting that air po
 
 ---
 
+### 5.4 Prediction Visualization
+
+![Prediction vs Actual](ResultSS/prediction_vs_actual.png)
+
+This plot compares actual PM2.5 values with predicted values from the model.
+
+**Insight:**  
+The predictions closely follow the actual values, confirming that the model performs well in capturing pollution patterns.
+
+---
+
 ### 5.3 K-Means Clustering
 
 ![Clustering Output](ResultSS/clustering.png)
