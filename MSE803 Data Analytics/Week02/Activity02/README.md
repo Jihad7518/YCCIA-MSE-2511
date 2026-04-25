@@ -54,7 +54,7 @@ The missing values are relatively small and consistent with real-world environme
 The distribution of PM2.5 is right-skewed, with most values below 150. However, extreme values reach up to 999.
 
 **Insight:**  
-While air pollution is often moderate, there are significant extreme pollution events, which are important for environmental monitoring.
+Air pollution is generally moderate, but rare extreme spikes significantly increase overall risk. These outliers may correspond to episodic events (e.g., traffic surges, industrial emissions, or weather conditions) and should be specifically monitored and modeled.
 
 ---
 
